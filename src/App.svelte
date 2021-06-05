@@ -1,21 +1,43 @@
 <script>
 	import Router from "svelte-spa-router";
 	import routes from "./routes";
+
+	function myFunction() {
+  		var element = document.body;
+  		element.classList.toggle("dark-mode");
+}
+
 </script>
 
 <!-- This part is always displayed -->
 
-<div class="jumbotron">
+<!-- <div class="jumbotron">
 	<h1 class="display-4">Events DB</h1>
 	<p class="lead">This is the Frontend of the Events DB</p>
 
- </div>
+ </div> -->
 
- 
+ <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+	<div class="carousel-inner" >
+	  <div class="carousel-item active">
+		<img class="d-block w-100" src="https://sdh.edu.sg/wp-content/uploads/2020/10/events.png" alt="First slide">
+	  </div>
+	  <div class="carousel-item">
+		<img class="d-block w-100" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80" alt="Second slide">
+	  </div>
+	  <div class="carousel-item">
+		<img class="d-block w-100" src="https://newretrowave.com/wp-content/uploads/2019/08/a2868120397_10-1.jpg" alt="Third slide">
+	  </div>
+	</div>
+  </div>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="#/">Festival DB</a>
+
+		<button type="button" class="btn btn-dark">Toggle <i class="bi bi-circle-half"></i>
+		</button>
+
 		<button
 			class="navbar-toggler"
 			type="button"
@@ -44,19 +66,7 @@
 	</div>
 </nav>
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-	<div class="carousel-inner" >
-	  <div class="carousel-item active">
-		<img class="d-block w-100" src="https://sdh.edu.sg/wp-content/uploads/2020/10/events.png" alt="First slide">
-	  </div>
-	  <div class="carousel-item">
-		<img class="d-block w-100" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80" alt="Second slide">
-	  </div>
-	  <div class="carousel-item">
-		<img class="d-block w-100" src="..." alt="Third slide">
-	  </div>
-	</div>
-  </div>
+
 
 <div class="container mt-3">
 	
