@@ -2,9 +2,11 @@
 	import Router from "svelte-spa-router";
 	import routes from "./routes";
 
-	function myFunction() {
-  		var element = document.body;
-  		element.classList.toggle("dark-mode");
+	let darkModeEnabled = false;
+	function toggle() {
+		darkModeEnabled = !darkModeEnabled;
+		window.document.body.classList.toggle('dark-mode')
+		
 }
 
 </script>
@@ -31,41 +33,35 @@
 	</div>
   </div>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="#/">Festival DB</a>
-
-		<button type="button" class="btn btn-dark">Toggle <i class="bi bi-circle-half"></i>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="#">Events DB</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+  
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="#/demo">Demo</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#/persons">Persons</a>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="#/create-person">Create Person</a>
+			</li>
+		</ul>
+		<button on:click={toggle} type="button" class="btn btn-dark"> 
+			{#if darkModeEnabled }
+			Go light
+			{:else}
+			Darkmode
+			{/if}
 		</button>
-
-		<button
-			class="navbar-toggler"
-			type="button"
-			data-bs-toggle="collapse"
-			data-bs-target="#navbarNavDropdown"
-			aria-controls="navbarNavDropdown"
-			aria-expanded="false"
-			aria-label="Toggle navigation"
-		>
-			<span class="navbar-toggler-icon" />
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="#/demo">Demo</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#/persons">Persons</a>
-				</li>
-				
-				<li class="nav-item">
-					<a class="nav-link" href="#/create-person">Create Person</a>
-				</li>
-			</ul>
-		</div>
+	 
 	</div>
-</nav>
-
+  </nav>
 
 
 <div class="container mt-3">
@@ -75,5 +71,14 @@
 	<Router {routes} />
 </div>
 
+
+
 <style>
+	:global(body) {
+		transition: background-color 0.3s
+	}
+	:global(body.dark-mode) {
+		background-color: #000d18;
+		color: #bfc2c7;
+	}
 </style>
