@@ -39,7 +39,6 @@
                     
                     <td>{event.name}</td>
                     <td>{event.veranstalter}</td> 
-                    <td>{event}</td>
                 </tr> 
             {/each}
                 

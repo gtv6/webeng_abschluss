@@ -71,7 +71,7 @@
             <img src="/images/grid/event2.jpg" class="card-img" alt="...">
             <div class="card-img-overlay">
               <h5 class="card-title">New Event</h5>
-              <a href="#" class="btn btn-dark">Create Event</a>
+              <a href="#/create-event" class="btn btn-dark">Create Event</a>
             </div>
           </div></div>
         
