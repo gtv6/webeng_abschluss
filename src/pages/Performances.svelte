@@ -38,16 +38,28 @@
             <tr>
                 <th>Bandname</th>
                 <th>Album</th>
+                <th>Song</th>
             </tr>
         </thead>
     
         <tbody>
             
-            {#each performances as perfromance }
+            {#each performances as performance }
                 <tr>
                     
-                    <td>{perfromance.bandname}</td>
-                    <td>{perfromance.album}</td> 
+                    <td>{performance.bandname}</td>
+                    <td>{#if performance.album == undefined}
+                        -
+                        {:else}
+                        {performance.album}                        
+                        {/if}
+
+                    </td> 
+                    <td>{#if performance.song == undefined}
+                        -
+                        {:else}
+                        {performance.song}                        
+                        {/if}</td> 
                 </tr> 
             {/each}
                 

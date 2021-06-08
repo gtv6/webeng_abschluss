@@ -3,9 +3,16 @@
 
 <script>
     import axios from "axios";
+    import { onMount } from "svelte";
 
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+
+      
+     
+
+      
+      onMount( () => {
+            createArray();
+        })
 
       var result;
       
@@ -60,36 +67,35 @@
                 alert("Error: Datasource not Found! Check if your Backend is running!")
             })   
             
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
       }
 
 
       function drawChart() {
 
-        createArray();
         
-        let test = [
+        
+        let header = [
           ['Events', 'Count of Events'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]];
+          ['',    0]];
 
-        var data = google.visualization.arrayToDataTable(test);
+        var data = google.visualization.arrayToDataTable(header);
         
-        data.addRows([["hallo", 100]])
-        console.log(result.length)
+        /* data.addRows([["hallo", 100]])
+        console.log(result.length) */
 
         for(var c = 0; c < result.length; c++){
           console.log(result);
           console.log("allo");
-          data.addRows([[result[c][0], 100]])
+          data.addRows([[result[c][0], result[c][1]]]);
+          
         }
         
         
 
         var options = {
-          title: 'Events by organizers'
+          title: 'Events by organizers (Only works in Google Chrome!)'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
