@@ -3,22 +3,22 @@
     import axios from "axios";
     import { onMount } from "svelte";
     
-        let events = [];
-        var totalevents = 0;
+        var performances = [];
+        var totalperformances = 0;
     
         onMount( () => {
-            getEvents();
+            getPerformances();
         })
     
-        function getEvents() {
+        function getPerformances() {
 
             
     
-            axios.get("http://localhost:8080/events/events")
+            axios.get("http://localhost:8080/events/performances")
             .then( response => {
-               events = response.data;
-               totalevents = events.length;
-               document.getElementById("countnum").innerHTML = totalevents;
+               performances = response.data;
+               totalperformances = performances.length;
+               document.getElementById("countnum").innerHTML = totalperformances;
             })
             .catch (error => {
                 alert("Error: Datasource not Found! Check if your Backend is running!")
@@ -27,27 +27,27 @@
     </script>
     
     
-    <h1> All events and organizers: </h1>
+    <h1> All Performances: </h1>
     <div class="counterdiv">
     <div class="counter"><b id="countnum">-</b></div>
-    <span>Events</span>
+    <span>Performances</span>
     </div>
     
     <table class="table"> 
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Organizer</th>
+                <th>Bandname</th>
+                <th>Album</th>
             </tr>
         </thead>
     
         <tbody>
             
-            {#each events as event }
+            {#each performances as perfromance }
                 <tr>
                     
-                    <td>{event.name}</td>
-                    <td>{event.veranstalter}</td> 
+                    <td>{perfromance.bandname}</td>
+                    <td>{perfromance.album}</td> 
                 </tr> 
             {/each}
                 

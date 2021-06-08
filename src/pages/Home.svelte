@@ -2,19 +2,91 @@
 
 
 <script>
+    import axios from "axios";
+
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
+      var result;
+      
+
+      function createArray() {
+
+        var events;
+        /* result = [['Events', 'Count of Events']]; */
+        result = [];
+
+        axios.get("http://localhost:8080/events/events")
+            .then( response => {
+               events = response.data;
+               console.log(response);
+               
+            var resArr = [];
+                events.filter(function(item){
+                    var i = resArr.findIndex(x => (x.veranstalter == item.veranstalter));
+                    if(i <= -1){
+                            resArr.push(item);
+                    }
+            return null;
+            });
+            
+            console.log(resArr);
+
+            
+
+            for(var i in resArr) {
+                
+                let counter = 0;
+                console.log(resArr[i].veranstalter)
+
+                for(let x = 0; x < events.length; x++){
+                  console.log("works")
+                  if (events[x].veranstalter === resArr[i].veranstalter) {
+                    counter++;
+                  }
+
+                }
+
+                result.push([resArr[i].veranstalter, counter])
+              }
+              console.log(result)
+              console.log(result[0][0])
+              console.log(result[0][1])
+              
+              result = result;
+              
+            })
+            .catch (error => {
+                alert("Error: Datasource not Found! Check if your Backend is running!")
+            })   
+            
+      }
+
+
       function drawChart() {
 
-        var data = google.visualization.arrayToDataTable([
+        createArray();
+        
+        let test = [
           ['Events', 'Count of Events'],
           ['Work',     11],
           ['Eat',      2],
           ['Commute',  2],
           ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
+          ['Sleep',    7]];
+
+        var data = google.visualization.arrayToDataTable(test);
+        
+        data.addRows([["hallo", 100]])
+        console.log(result.length)
+
+        for(var c = 0; c < result.length; c++){
+          console.log(result);
+          console.log("allo");
+          data.addRows([[result[c][0], 100]])
+        }
+        
+        
 
         var options = {
           title: 'Events by organizers'
@@ -58,7 +130,7 @@
             <img src="/images/grid/car.jpg" class="card-img" alt="...">
             <div class="card-img-overlay">
             <h5 class="card-title">Performance</h5>
-            <a href="#" class="btn btn-dark">Get Performance</a>
+            <a href="#/performances" class="btn btn-dark">Get Performance</a>
             </div>
         </div>          
     </div>

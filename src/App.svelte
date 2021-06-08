@@ -52,10 +52,16 @@
 			</li>
 			
 			<li class="nav-item">
-				<a class="nav-link" href="#/create-person">Create Person</a>
+				<a class="nav-link" href="#/create-event">Create Event</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#/events">Get Events</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#/create-performance">Create Performance</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#/performances">Get Performances</a>
 			</li>
 		</ul>
 		<button on:click={toggle} type="button" class="btn btn-dark"> 
