@@ -32,6 +32,8 @@
     <div class="counter"><b id="countnum">-</b></div>
     <span>Events</span>
     </div>
+
+    
     
     <table class="table"> 
         <thead>

@@ -14,7 +14,7 @@
 
             
     
-            axios.get("http://localhost:8080/events/performances")
+            axios.get("http://localhost:8080/events/performances/albums")
             .then( response => {
                performances = response.data;
                totalperformances = performances.length;
@@ -27,28 +27,24 @@
     </script>
     
     
-    <h1> All Performances: </h1>
+    <h1> All Albums: </h1>
     <div class="counterdiv">
     <div class="counter"><b id="countnum">-</b></div>
-    <span>Performances</span>
+    <span>Albums</span>
     </div>
 
     <div class="d-flex justify-content-center">
         
-        <a class="btn btn-secondary filterbutton" href="#/albums" role="button">Albums</a>
+        <a class="btn btn-secondary filterbutton" href="#/performances" role="button">All Performances</a>
         <a class="btn btn-secondary filterbutton" href="#/songs" role="button">Songs</a>
-    
+        
     </div>
     
-    
-
-
     <table class="table"> 
         <thead>
             <tr>
                 <th>Bandname</th>
                 <th>Album</th>
-                <th>Song</th>
             </tr>
         </thead>
     
@@ -58,18 +54,7 @@
                 <tr>
                     
                     <td>{performance.bandname}</td>
-                    <td>{#if performance.album == undefined}
-                        -
-                        {:else}
-                        {performance.album}                        
-                        {/if}
-
-                    </td> 
-                    <td>{#if performance.song == undefined}
-                        -
-                        {:else}
-                        {performance.song}                        
-                        {/if}</td> 
+                    <td>{performance.album}</td>
                 </tr> 
             {/each}
                 

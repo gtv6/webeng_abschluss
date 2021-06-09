@@ -17,11 +17,11 @@
     }
 </script>
 
-<h1>Create a new event</h1>
+<h1>Create a new Performance</h1>
 
 <form>
     <div class="mb-3">
-        <label class="form-label" for="">Eventname</label>
+        <label class="form-label" for="">Bandname</label>
         <input class="form-control" type="text" bind:value={event.name}>
     </div>
 

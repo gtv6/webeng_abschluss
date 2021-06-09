@@ -1,17 +1,14 @@
-<h1 class="mt-3">Welcome to the Events Application</h1>
-
 
 <script>
     import axios from "axios";
     import { onMount } from "svelte";
-
-
-      
-     
-
-      
+          
       onMount( () => {
             createArray();
+            getDateTime();
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
         })
 
       var result;
@@ -67,8 +64,11 @@
                 alert("Error: Datasource not Found! Check if your Backend is running!")
             })   
             
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
+            
+            
+
+           
+            
       }
 
 
@@ -102,9 +102,37 @@
 
         chart.draw(data, options);
       }
+
+    
+
+      function getDateTime() {
+        var now     = new Date(); 
+        var hour    = now.getHours(); 
+        if(hour >= 18){  
+          document.getElementById('greeting').innerHTML = "Good Evening";
+        }
+        else if (hour >= 12) {
+        document.getElementById('greeting').innerHTML = "Good Afternoon";
+        } else {
+          document.getElementById('greeting').innerHTML = "Good Morning";
+        }
+}
+    
     </script>
+  
+  
+    <div class="homebanner">
+              
+       <div class="logobanner">
+         <img src="/images/logo/events_logo.png">
+       </div>
+        
+  </div>
+    
+  <h1 class="mt-3">Events DB</h1>
+  <h3 id="greeting">-</h3>
 
-
+  
 
   <div class="container mt-5">
     <div class="row">
@@ -194,7 +222,49 @@
   
 
 <style>
-    .logo {
-        height: 100px;
-    }
+  
+
+  .logobanner {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation: animate 3s infinite linear;
+}
+
+.logobanner img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  transform: translate(-50%, -50%);
+}
+
+.logobanner:before,
+.logobanner:after {
+  position: absolute;
+  content: '';
+  width: 200px;
+  height: 200px;
+  top: 50px;
+  border-radius: 5px;
+  transform: rotate(45deg);
+  background: rgba(255, 0, 255, 0.05);
+  z-index: 0;
+  box-shadow: 0 0 0 1px #fff, 
+              0 0 10px 1px #ff0080, 
+              inset 0 0 10px 1px #ff0080;
+}
+
+.logobanner:before {
+  left: 35px;
+}
+
+.logobanner:after {
+  right: 35px;
+}
+
+@keyframes animate {
+  0% { width: 300px; }
+  50% { width: 240px; }
+}
 </style>

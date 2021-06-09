@@ -36,7 +36,7 @@
 	</div>
   </div>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
 	<a class="navbar-brand" href="#">Events DB</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	  <span class="navbar-toggler-icon"></span>
@@ -64,7 +64,7 @@
 				<a class="nav-link" href="#/performances">Get Performances</a>
 			</li>
 		</ul>
-		<button on:click={toggle} type="button" class="btn btn-dark"> 
+		<button on:click={toggle} type="button" class="btn btn-dark" > 
 			{#if darkModeEnabled }
 			Go bright!
 			{:else}
