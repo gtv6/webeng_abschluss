@@ -30,6 +30,6 @@
         <input class="form-control" type="text" bind:value={event.veranstalter}>
     </div>
 
-    <button on:click={createEvent} class="btn btn-primary">Create Event</button>
+    <button on:click={createEvent} class="btn btn-dark">Create Event</button>
 </form>
 

@@ -16,6 +16,8 @@
 
       function createArray() {
 
+        
+
         var events;
         /* result = [['Events', 'Count of Events']]; */
         result = [];
@@ -95,7 +97,8 @@
         
 
         var options = {
-          title: 'Events by organizers (Only works in Google Chrome!)'
+          title: 'Events by organizers (Only works in Google Chrome!)',
+          backgroundColor: 'transparent'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -197,7 +200,7 @@
             <img src="/images/grid/vin.png" class="card-img" alt="...">
             <div class="card-img-overlay">
               <h5 class="card-title">New Performance</h5>
-              <a href="#" class="btn btn-dark">Create Performance</a>
+              <a href="#/create-performance" class="btn btn-dark">Create Performance</a>
             </div>
           </div>
         </div>
@@ -224,47 +227,4 @@
 <style>
   
 
-  .logobanner {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  animation: animate 3s infinite linear;
-}
-
-.logobanner img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 150px;
-  transform: translate(-50%, -50%);
-}
-
-.logobanner:before,
-.logobanner:after {
-  position: absolute;
-  content: '';
-  width: 200px;
-  height: 200px;
-  top: 50px;
-  border-radius: 5px;
-  transform: rotate(45deg);
-  background: rgba(255, 0, 255, 0.05);
-  z-index: 0;
-  box-shadow: 0 0 0 1px #fff, 
-              0 0 10px 1px #ff0080, 
-              inset 0 0 10px 1px #ff0080;
-}
-
-.logobanner:before {
-  left: 35px;
-}
-
-.logobanner:after {
-  right: 35px;
-}
-
-@keyframes animate {
-  0% { width: 300px; }
-  50% { width: 240px; }
-}
 </style>

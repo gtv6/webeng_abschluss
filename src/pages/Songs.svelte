@@ -46,6 +46,7 @@
             <tr>
                 <th>Bandname</th>
                 <th>Song</th>
+                <th>Duration</th>
             </tr>
         </thead>
     
@@ -55,6 +56,7 @@
                 <tr>                    
                     <td>{performance.bandname}</td>
                     <td>{performance.song}</td>
+                    <td>{performance.duration}</td>
                 </tr> 
             {/each}
                 

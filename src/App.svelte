@@ -87,7 +87,8 @@
 
 <style>
 	:global(body) {
-		transition: background-color 0.3s
+		transition: background-color 0.3s;
+	
 	}
 	:global(body.dark-mode) {
 		background-color: #181a1b;
