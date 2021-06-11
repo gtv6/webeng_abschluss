@@ -46,6 +46,7 @@
                 <th>Bandname</th>
                 <th>Album</th>
                 <th>Number of Performances</th>
+                <th>Details</th>
             </tr>
         </thead>
     
@@ -57,6 +58,7 @@
                     <td>{performance.bandname}</td>
                     <td>{performance.album}</td>
                     <td>{performance.numperformances}</td>
+                    <td><a class="btn btn-secondary filterbutton" href={"#/album/" + performance.id}>{performance.id}</a></td>
                 </tr> 
             {/each}
                 

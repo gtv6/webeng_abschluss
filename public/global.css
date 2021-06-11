@@ -8,7 +8,11 @@
     object-fit: fill;
 }
 
-
+.albumcontainer {
+  background-color: transparent !important;
+  font-size: large;
+  border-color: #ff0080;
+}
 
 .counterdiv {
     background-color: #343a40;
