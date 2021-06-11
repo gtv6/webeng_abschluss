@@ -12,6 +12,7 @@
   background-color: transparent !important;
   font-size: large;
   border-color: #ff0080;
+  border-width: 5px;
 }
 
 .counterdiv {

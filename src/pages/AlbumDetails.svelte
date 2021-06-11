@@ -6,21 +6,30 @@ import axios from "axios";
 
   
 
-    let albumId 
+    var albumId 
 
-    let album = {};
-    let deezer = {};
+    var album = {};
+    var deezer = {};
+    var coverlink;
+    var bandname;
+    var albumname;
     
     $: {
         albumId = params.id; //Wird immer ausgeführt, sobald sich Var Inhalt ändert (Braucht man damit ID im Titel responsive ist)
         getAlbum();
+        
     }
     
    function getAlbum() {
        axios.get( "http://localhost:8080/events/albums/" + albumId)
             .then( response => {
                 album = response.data;
-                getDeezer();
+                bandname = JSON.stringify(album.bandname);
+                albumname = JSON.stringify(album.album);
+                bandname = bandname.replace(/['"]+/g, '');
+                albumname = albumname.replace(/['"]+/g, '');
+                console.log(bandname);
+                getAlbumArt();
             })
             .catch (error => {
             alert("Fehler")
@@ -43,7 +52,24 @@ import axios from "axios";
                 console.log("hallo");
             })
             
-   }
+   
+   
+        }
+        
+        function getAlbumArt() {
+   
+
+            
+        console.log("hallo");
+        albumArt( bandname, {album: albumname, size: 'big'}, ( error, response ) => {
+            console.log( response )
+            coverlink = response;
+
+        })
+
+        
+        }
+   
 </script>
 
 <h1>Details for Album ({albumId})</h1>
@@ -85,7 +111,7 @@ import axios from "axios";
                     </table>
                   </div>
                   <div class="col-sm">
-                    <img class="card-img-top" src="https://api.deezer.com/search?q=album:%22%27.mediterranea.%27%22%20artist:%22%27.irama.%27%22" alt="Card image cap">
+                    <img class="card-img-top" src="{coverlink}" alt="No Image for This Album Found">
                     
                   </div>
                   
