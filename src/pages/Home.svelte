@@ -37,8 +37,7 @@
             });
             
             console.log(resArr);
-
-            
+      
 
             for(var i in resArr) {
                 

@@ -11,13 +11,7 @@
 
 </script>
 
-<!-- This part is always displayed -->
 
-<!-- <div class="jumbotron">
-	<h1 class="display-4">Events DB</h1>
-	<p class="lead">This is the Frontend of the Events DB</p>
-
- </div> -->
 
  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
 	<div class="carousel-inner" >
@@ -44,13 +38,7 @@
   
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item">
-				<a class="nav-link" href="#/demo">Demo</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#/persons">Persons</a>
-			</li>
-			
+						
 			<li class="nav-item">
 				<a class="nav-link" href="#/create-event">Create Event</a>
 			</li>
@@ -79,7 +67,6 @@
 <div class="container mt-3">
 	
 	
-	<!-- Here we load the page depending on the current URL -->
 	<Router {routes} />
 </div>
 

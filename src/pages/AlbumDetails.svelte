@@ -77,7 +77,7 @@ import axios from "axios";
 <p>Album: {album.album}</p>
 
 <div class="card albumcontainer mb-3" >
-    <!-- <img class="card-img-top" src="https://nofilmschool.com/sites/default/files/styles/article_wide/public/alien_1.jpg?itok=ABrt4pIs" alt="Card image cap"> -->
+   
     <div class="card-body">
       <p class="card-text"></p>
      
